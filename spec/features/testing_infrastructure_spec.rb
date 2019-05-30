@@ -6,7 +6,7 @@ feature 'Testing infrastructure' do
   end
 end
 
-feature 'Add player names' do
+feature 'Enter player names' do
   scenario 'Can submit a form with names and check names are on screen' do
     visit('/')
     fill_in 'player_1_name', with: 'Player1'
