@@ -4,14 +4,19 @@ feature 'Enter player names' do
     sign_in_and_play
     expect(page).to have_content 'Player1 vs Player2'
   end
+end
 
   feature 'Player 2\'s points' do
     scenario 'Can see player 2\'s hit points' do
-      visit('/')
-      fill_in 'player_1_name', with: 'Player1'
-      fill_in 'player_2_name', with: 'Player2'
-      click_button 'Submit'
+      sign_in_and_play
       expect(page).to have_content 'Player2\'s hit points: 10'
     end
+  end
+
+feature 'Player 2\'s attack' do
+  scenario 'Can attack player 2 and get confirmation' do
+    sign_in_and_play
+    click_button "attack"
+    expect(page).to have_content 'Player1 attacked Player2'
   end
 end
